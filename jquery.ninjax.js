@@ -23,10 +23,10 @@
 *    will be used for every instance.
 *
 *    $.fn.ninjax.set_defaults
-*    (
+*    ({
 * 	     event: 'click',
 * 	     type : 'GET',
-*    );
+*    });
 *
 *
 * Override defaults per instance:
