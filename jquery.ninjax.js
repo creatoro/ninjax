@@ -83,17 +83,17 @@
 				    // Disable default event
 					event.preventDefault();
 
-					if ( ! plugin.settings.confirm_only && plugin.settings.data && ! $.isPlainObject(plugin.settings.data) && ! $.isArray(plugin.settings.data))
+					if ( ! plugin.settings.confirm_only && plugin.settings.data_source != '')
 					{
-						if ($(plugin.settings.data).length)
+						if ($(plugin.settings.data_source).length)
 						{
-							// Select and serialize data as selector given
-							plugin.settings.data = $(plugin.settings.data).serialize();
+							// Select and serialize data as source is given
+							plugin.settings.data = $(plugin.settings.data_source).serialize();
 						}
 						else
 						{
 							// Data selector given, but data cannot be selected
-							alert('Ninjax: data (' + plugin.settings.data + ') cannot be selected.');
+							alert('Ninjax: data (' + plugin.settings.data_source + ') cannot be selected.');
 
 							// Cannot continue
 							return false;
@@ -194,7 +194,8 @@
 	{
 		event                : 'click',           // String: the event that will trigger the execution
 		url                  : '',                // String: target URL or empty for automatic selection of the element's 'href' attribute or form's action that wraps the element (if 'href' is unavailable)
-		data                 : null,              // Mixed: data that should be sent to the URL or data selector that will select data to be serialized
+		data                 : null,              // Mixed: query string or an array of data
+		data_source          : '',                // Selector: to be serialized data's container (a form)
 		type                 : 'POST',            // String: request type, use 'POST' or 'GET'
 		confirm_needed       : false,             // Boolean: should the action be confirmed?
 		confirm_only         : false,             // Boolean: if this is set to true AJAX request will not be executed, only a confirmation will be displayed and the default event will be triggered, for example: loading a URL or posting a form
