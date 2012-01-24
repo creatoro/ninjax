@@ -46,7 +46,7 @@
 *          The order of overriding options is:
 *          defaults < globally overridden defaults < defaults overridden per instance < options overridden per element
 *
-*    <div class="item" data-ninjax-options='{"event": "click", "type": "GET"}'></div>
+*    <div class="item" data-ninjax-options='{"event": "click", "success_item": "tr#item_1"}'></div>
 *
 *
 * Author: creatoro
@@ -65,7 +65,7 @@
 		var $element = $(element);
 
 		// Set metadata, which will allow to set options like this:
-		// <div class="item" data-ninjax-options='{"event": "click", "type": "GET"}'></div>
+		// <div class="item" data-ninjax-options='{"event": "click", "success_item": "tr#item_1"}'></div>
 		var metadata = $element.data('ninjax-options');
 
 		// Plugin init
